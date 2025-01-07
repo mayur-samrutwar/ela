@@ -68,11 +68,11 @@ export function ConvAI() {
     }
 
     return (
-        <div className={"flex justify-center items-center gap-x-4"}>
-            <Card className={'rounded-3xl'}>
-                <CardContent>
-                    <CardHeader>
-                        <CardTitle className={'text-center'}>
+        <div className="flex justify-center items-center w-full max-w-md mx-auto px-4">
+            <Card className="rounded-3xl w-full">
+                <CardContent className="p-4 sm:p-6">
+                    <CardHeader className="p-0 sm:p-6">
+                        <CardTitle className="text-center text-base sm:text-lg">
                             {isConnected ? (
                                 isSpeaking ? `Ela is speaking` : 'Ela is listening'
                             ) : (
@@ -80,26 +80,25 @@ export function ConvAI() {
                             )}
                         </CardTitle>
                     </CardHeader>
-                    <div className={'flex flex-col gap-y-4 text-center'}>
-                        <div className={cn('orb my-16 mx-12',
+                    <div className="flex flex-col gap-y-4 text-center">
+                        <div className={cn('orb my-8 sm:my-16 mx-6 sm:mx-12',
                             isSpeaking ? 'animate-orb' : (conversation && 'animate-orb-slow'),
                             isConnected ? 'orb-active' : 'orb-inactive')}
                         ></div>
 
-
                         <Button
-                            variant={'outline'}
-                            className={'rounded-full'}
-                            size={"lg"}
+                            variant="outline"
+                            className="rounded-full text-sm sm:text-base"
+                            size="lg"
                             disabled={conversation !== null && isConnected}
                             onClick={startConversation}
                         >
                             Talk with Ela
                         </Button>
                         <Button
-                            variant={'outline'}
-                            className={'rounded-full'}
-                            size={"lg"}
+                            variant="outline"
+                            className="rounded-full text-sm sm:text-base"
+                            size="lg"
                             disabled={conversation === null && !isConnected}
                             onClick={endConversation}
                         >
